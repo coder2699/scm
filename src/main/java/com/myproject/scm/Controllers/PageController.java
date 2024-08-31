@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.myproject.scm.entities.Providers;
 import com.myproject.scm.entities.User;
 import com.myproject.scm.forms.UserForm;
 import com.myproject.scm.services.UserService;
@@ -74,17 +75,24 @@ public class PageController {
         System.out.println("Processing registration");
         // fetch form data
         // UserForm
-        System.out.println(userForm);
-        User user = User.builder()
-                .name(userForm.getName())
-                .email(userForm.getEmail())
-                .password(userForm.getPassword())
-                .about(userForm.getAbout())
-                .phoneNumber(userForm.getPhoneNumber())
-                .profilePic(
-                        "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg")
-                .build();
+        // System.out.println(userForm);
+        // User user = User.builder()
+        //         .name(userForm.getName())
+        //         .email(userForm.getEmail())
+        //         .password(userForm.getPassword())
+        //         .about(userForm.getAbout())
+        //         .phoneNumber(userForm.getPhoneNumber())
+        //         .profilePic(
+        //                 "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg")
+        //         .build();
 
+        User user = new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setProfilePic("https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg");
         User savedUser = userService.saveUser(user);
 
         System.out.println("user saved :");
