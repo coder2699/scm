@@ -1,4 +1,4 @@
-package com.myproject.scm.Entities;
+package com.myproject.scm.entities;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

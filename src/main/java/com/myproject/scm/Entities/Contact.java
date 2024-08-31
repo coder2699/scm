@@ -1,4 +1,4 @@
-package com.myproject.scm.Entities;
+package com.myproject.scm.entities;
 
 import java.util.*;
 import jakarta.persistence.CascadeType;
