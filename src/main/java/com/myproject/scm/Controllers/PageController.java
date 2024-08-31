@@ -62,9 +62,6 @@ public class PageController {
     public String register(Model model) {
 
         UserForm userForm = new UserForm();
-        // default data bhi daal sakte hai
-        // userForm.setName("Durgesh");
-        // userForm.setAbout("This is about : Write something about yourself");
         model.addAttribute("userForm", userForm);
 
         return "register";
@@ -78,15 +75,6 @@ public class PageController {
         // fetch form data
         // UserForm
         System.out.println(userForm);
-
-        // validate form data
-        // TODO::Validate userForm[Next Video]
-
-        // save to database
-
-        // userservice
-
-        // UserForm--> User
         User user = User.builder()
                 .name(userForm.getName())
                 .email(userForm.getEmail())
@@ -94,16 +82,13 @@ public class PageController {
                 .about(userForm.getAbout())
                 .phoneNumber(userForm.getPhoneNumber())
                 .profilePic(
-                        "https://www.learncodewithdurgesh.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdurgesh_sir.35c6cb78.webp&w=1920&q=75")
+                        "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg")
                 .build();
 
         User savedUser = userService.saveUser(user);
 
         System.out.println("user saved :");
 
-        // message = "Registration Successful"
-
-        // redirectto login page
         return "redirect:/register";
     }
 
