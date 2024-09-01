@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.myproject.scm.entities.Providers;
 import com.myproject.scm.entities.User;
 import com.myproject.scm.forms.UserForm;
+import com.myproject.scm.helpers.Message;
+import com.myproject.scm.helpers.MessageType;
 import com.myproject.scm.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -71,7 +75,7 @@ public class PageController {
     // processing register
 
     @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForm userForm) {
+    public String processRegister(@ModelAttribute UserForm userForm, HttpSession session) {
         System.out.println("Processing registration");
         // fetch form data
         // UserForm
@@ -96,6 +100,9 @@ public class PageController {
         User savedUser = userService.saveUser(user);
 
         System.out.println("user saved :");
+
+        Message message = Message.builder().content("Registration Successful").type(MessageType.green).build(); 
+        session.setAttribute("message", message);
 
         return "redirect:/register";
     }
