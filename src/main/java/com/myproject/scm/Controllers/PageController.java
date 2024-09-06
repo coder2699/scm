@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.myproject.scm.entities.Providers;
 import com.myproject.scm.entities.User;
 import com.myproject.scm.forms.UserForm;
 import com.myproject.scm.helpers.Message;
